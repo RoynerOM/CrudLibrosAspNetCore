@@ -1,0 +1,52 @@
+@model Libro
+
+@{
+    ViewData["Title"] = "Eliminar un libro";
+}
+
+
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Delete" method="POST">
+                <input type="hidden" asp-for="Id">
+                <!--Validar el modelo-->
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                        <label asp-for="Titulo"></label>
+                        <input asp-for="Titulo" class="form-control" readonly>
+                        <span asp-validation-for="Titulo" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label asp-for="Descripcion"></label>
+                        <input asp-for="Descripcion" class="form-control" readonly>
+                        <span asp-validation-for="Descripcion" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="FechaLanzamiento"></label>
+                        <input asp-for="FechaLanzamiento" class="form-control"  readonly>
+                        <span asp-validation-for="FechaLanzamiento" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Precio"></label>
+                        <input asp-for="Precio" class="form-control" readonly>
+                        <span asp-validation-for="Precio" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label asp-for="Autor"></label>
+                        <input asp-for="Autor" class="form-control" readonly>
+                        <span asp-validation-for="Autor" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mt-3">
+                        <input type="submit" class="btn btn-danger text-white" value="Eliminar">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    @{<partial name="_ValidationScriptsPartial"/>}
+}
